@@ -2,16 +2,89 @@
 <html>
 <head>
 	<title>ngclassifides</title>
+	<link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+	<link  href="node_modules/mdi/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/sytle.css">
 </head>
 <body ng-app="ngclassifieds" ng-controller="mycontroller">
 	
-	<input type="text" placeholder="name" ng-model="name">
+	<!-- <input type="text" placeholder="Enter your name" ng-model="name.first"> -->
+	
 
-	<h1>{{message}}</h1>
-	<h2>{{name}}</h2>
+	<!-- <h1 ng-model="name">{{name.first+" "+name.last}}</h1> -->
+<md-toolbar>
+<div class="md-toolbar-tools">
+	<p><strong>intretainment</strong></p>
+	<md-button>
+	<mdi-icon class="mdi mdi-plus-circle"> </mdi-icon>
+	new intertainment
+	</md-button>
+</div>
+</md-toolbar>
+
+
+
+<!-- <button ng-click="showName = true">show name</button>
+
+<button ng-click="showName =false">hide name</button>
+<p ng-show="showName">asssghar abbsnejad</p>
+ -->
+
+
+
+<md-content class="md-padding" layout="row" layout-wrap> 
+
+
+
+
+<md-card ng-repeat="classified in classifieds" flex="30">
+
+<img ng-src="{{classified.image}}" alt="ops">
+<md-card-content>
+<div class="classified-info" ng-show="!showContact">
+<h2 class="md-title">{{classified.title|uppercase}}</h2>
+<h3> {{classified.price}}}</h3>
+<p>{{classified.description}} </p>
+</div>
+<div class="classified-contact" ng-show="showContact">
+	<p><md-icon class="mdi mdi-account"></md-icon> assghar</p>
+	<p><md-icon class="mdi mdi-phone"></md-icon> 8888888888888888</p>
+	<p><md-icon class="mdi mdi-email"></md-icon> agh@gmail.com</p>
+</div>
+<div layout="row">
+	<md-button ng-click="showContact = true">Contact</md-button>
+	<md-button ng-click="showContact = false">Details</md-button>
+	<md-button ng-click="showAdmin = true">admin</md-button>
+	<md-button ng-click="showAdmin = false">close admin</md-button>
+</div>
+<div class="classified-admin" ng-if="showAdmin">
+<h3>Admin</h3>
+<div layout="row">
+<md-button class="md-primary">edit</md-button>
+<md-button class="md-wrap">delete</md-button>
+</div>
+</div>
+
+</md-card-content>
+
+
+
+</md-card>
+
+
+
+
+</md-content>
+
+	<!-- <asghar-abbasnejaad></asghar-abbasnejad> -->
+
 	<script src="node_modules/angular/angular.js"></script>
-	<script src="scripts/app.js"></script>
-	<script src="components/classifieds.ctr.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="components/classifieds.ctr.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	
 </body>
 </html>
  
